@@ -87,11 +87,10 @@ async def notifier():
     mycursor.close()
     mydb.close()
 
-    await bot.send_message(admin_id, f"Visited paid trainings: {TotalVisits}\n\nVisited in this block: {TotalVisits%5}/5", parse_mode="Markdown")
+    await bot.send_message(admin_id, f"Visited paid trainings in this block: {TotalVisits % 5}/5",
+                           parse_mode="Markdown")
     if TotalVisits % 5 == 0:
         await bot.send_message(admin_id, "The block has ended.", parse_mode="Markdown")
-
-
 
 
 async def scheduler():
